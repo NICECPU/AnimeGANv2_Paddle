@@ -124,10 +124,12 @@ class MyDataLoader(object):
         filename = self.file_list[idx]
         filepath = os.path.join(self.dataroot, filename)
 
-        image = cv2.imread(filepath)
+        img = cv2.imread(filepath)
+
+        # 将BGR格式转换为RGB格式
+        image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         image = self.transform(image)
-        # image = paddle.vision.transforms.functional.pil_loader(filepath)
-        # image = self.transform(image)
+
 
         return filename, paddle.to_tensor(image)
 
@@ -141,11 +143,6 @@ if __name__ == '__main__':
     Load_Para(model, weight_path='epoch_42_weight.pdparams')
     model.eval()
 
-    # dataset preprocess
-    transform = Compose([
-        Transpose(),
-        Normalize(mean=[127.5, 127.5, 127.5], std=[127.5, 127.5, 127.5], keys=['image', 'image'])
-    ])
     test_dataloader = MyDataLoader("./test_img/img", batch_size=1, shuffle=False)
     for i, filename_data in enumerate(test_dataloader):
         filename, data = filename_data
@@ -154,4 +151,4 @@ if __name__ == '__main__':
             data = data.unsqueeze(0)
             out1 = model.forward(data)
         image_numpy = tensor2img(out1, min_max=(-1.0, 1.0), image_num=1)
-        save_image(image_numpy, "./output/{}-output.jpg".format(filename))
+        save_image(image_numpy, "./output/{}-output.jpg".format(filename[:-4]))

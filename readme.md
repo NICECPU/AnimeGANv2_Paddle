@@ -6,7 +6,7 @@
 
 将训练好的权重移动到该目录下，找到[inference2.py](inference2.py) 修改加载权重的文件即可运行。
 
-# 效果:
+# 效果
 
 ![9-output](./output/9-output.jpg)
 
@@ -14,6 +14,6 @@
 
 ![6-output](./output/6-output.jpg)
 
-# ps:
+# 备注
 
 由于只在ai studio上训练了50个epoch，所以对某些图像的局部细节处理不是很好，考虑后续更新一个更好的权重文件

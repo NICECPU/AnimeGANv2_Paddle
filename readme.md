@@ -6,7 +6,7 @@
 
 ![9-output](./output/9-output.jpg)
 
-![1 (40)-output](./output/14-output.jpg)
+![pandas](./output/14-output.jpg)
 
 ![6-output](./output/6-output.jpg)
 

@@ -6,4 +6,10 @@
 
 ![9-output](./output/9-output.jpg)
 
-![1 (40)-output](./output/1 (40)-output.jpg)
+![1 (40)-output](./output/14-output.jpg)
+
+![6-output](./output/6-output.jpg)
+
+# ps:
+
+由于只在ai studio上训练了50个epoch，所以对某些图像的局部细节处理不是很好，考虑后续更新一个更好的权重文件
